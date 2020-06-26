@@ -25,10 +25,10 @@ export default class TrimmerSlider extends React.Component {
           style={{ borderColor: "red", borderWidth: 1, width: "100%" }}
           ref={this.slider}
           thumbImage={require("./assets/thumb-image.png")}
-          thumbTintColor="#222B45"
+          thumbTintColor="#fff"
           hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
           minimumValue={0}
-          minimumTrackTintColor="#40E1A9"
+          minimumTrackTintColor="#fff"
           maximumTrackTintColor="#B3BED3"
           step={0}
           maximumValue={1}

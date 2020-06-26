@@ -41,6 +41,7 @@ const TRACK_BORDER_COLOR = "#c8dad3";
 const MARKER_COLOR = "#EDEFF3";
 const TINT_COLOR = "#93b5b3";
 const TRACK_PROGRESS_COLOR = "#93b5b3";
+const TEXT_COLOR = "#B3BED3";
 
 round = (num) => Math.round(num).toFixed(0);
 
@@ -155,15 +156,15 @@ export default class Trimmer extends React.Component {
     this.animatedTextRef.current.setText(newStartingTime);
     this.sliderRef.current.setSliderValue(newSlidePosition);
 
-    // if (
-    //   Math.abs(
-    //     Math.floor(newStartingTime / 1000) -
-    //       Math.floor(this.lastStartPosition / 1000)
-    //   ) >= +1
-    // ) {
-    //   console.log("onScroll newStartingTime", newStartingTime);
-    //   onStartValueChanged && onStartValueChanged(newStartingTime);
-    // }
+    if (
+      Math.abs(
+        Math.floor(newStartingTime / 1000) -
+        Math.floor(this.lastStartPosition / 1000)
+      ) >= +1
+    ) {
+      console.log("onScroll newStartingTime", newStartingTime);
+      onStartValueChanged && onStartValueChanged(newStartingTime);
+    }
 
     this.lastStartPosition = newStartingTime;
   };
@@ -217,11 +218,12 @@ export default class Trimmer extends React.Component {
   };
 
   _renderStartingText = () => {
-    const { trimmerLength = TRIMMER_LENGTH } = this.props;
+    const { trimmerLength = TRIMMER_LENGTH, textColor = TEXT_COLOR } = this.props;
     return (
       <ClipPositionText
         ref={this.animatedTextRef}
         trimmerLength={trimmerLength}
+        textColor={textColor}
       />
     );
   };
@@ -277,6 +279,7 @@ export default class Trimmer extends React.Component {
       false
     );
 
+    return null;
     return (
       <View style={styles.root}>
         {/* <Animated.Code>
@@ -317,29 +320,11 @@ export default class Trimmer extends React.Component {
           }
         </Animated.Code> */}
         <View style={styles.sliderContainer}>
-          <View style={{ flex: 0 }}>
-            <TrimmerLengthButton
-              onPress={() => {}}
-              trimmerLengthOption={{
-                value: 20000,
-                key: "20s",
-              }}
-            />
-          </View>
           <View style={{ flex: 1 }}>
             <TrimmerSlider
               ref={this.sliderRef}
               onSliderValueChanged={this.onSliderValueChanged}
               onSlidingComplete={this.onSlidingComplete}
-            />
-          </View>
-          <View style={{ flex: 0 }}>
-            <TrimmerLengthButton
-              onPress={() => {}}
-              trimmerLengthOption={{
-                value: 20000,
-                key: "20s",
-              }}
             />
           </View>
         </View>
@@ -390,7 +375,7 @@ export default class Trimmer extends React.Component {
                   /* const position =
                     (MARKER_WIDTH + markerMargin) * i + MARKER_WIDTH; */
 
-                  /* 
+                  /*
                   const style = cond(
                     and(
                       greaterOrEq(
@@ -498,7 +483,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "row",
-    marginBottom: 8,
+    // marginBottom: 8,
   },
   trimmerRoot: {
     height: 80,

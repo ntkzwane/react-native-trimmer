@@ -17,7 +17,7 @@ formatMilliseconds = (ms) => {
 
   return `${round(hours)}:${
     round(minutes) < 10 ? `0${round(minutes)}` : round(minutes)
-  }:${seconds < 10 ? `0${seconds.toFixed(0)}` : seconds.toFixed(0)}`;
+    }:${seconds < 10 ? `0${seconds.toFixed(0)}` : seconds.toFixed(0)}`;
 };
 
 /**
@@ -43,7 +43,7 @@ export default class ClipPositionText extends React.Component {
   };
 
   render() {
-    const { trimmerLength = 0 } = this.props;
+    const { trimmerLength = 0, textColor } = this.props;
 
     return (
       <Animated.View style={styles.root}>
@@ -51,7 +51,7 @@ export default class ClipPositionText extends React.Component {
           <TextInput
             editable={false}
             ref={this.startingText}
-            style={styles.label}
+            style={[styles.label, { color: textColor }]}
             text={formatMilliseconds(0)}
           />
         </Animated.View>
@@ -59,7 +59,7 @@ export default class ClipPositionText extends React.Component {
           <TextInput
             editable={false}
             ref={this.endingText}
-            style={styles.label}
+            style={[styles.label, { color: textColor }]}
             text={formatMilliseconds(trimmerLength)}
           />
         </Animated.View>

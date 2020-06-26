@@ -119,7 +119,7 @@ formatMilliseconds = (ms) => {
 
   return `${round(hours)}:${
     round(minutes) < 10 ? `0${round(minutes)}` : round(minutes)
-  }:${seconds < 10 ? `0${seconds.toFixed(0)}` : seconds.toFixed(0)}`;
+    }:${seconds < 10 ? `0${seconds.toFixed(0)}` : seconds.toFixed(0)}`;
 };
 
 export default class App extends Component {
@@ -298,13 +298,13 @@ class Example extends Component {
                 <Text style={styles.timesLabel}>
                   {scrubbing
                     ? formatMilliseconds(
-                        startPositionLabel +
-                          TRIMMER_LENGTHS[trimmerLengthOptionIndex].value
-                      )
+                      startPositionLabel +
+                      TRIMMER_LENGTHS[trimmerLengthOptionIndex].value
+                    )
                     : formatMilliseconds(
-                        startPosition +
-                          TRIMMER_LENGTHS[trimmerLengthOptionIndex].value
-                      )}
+                      startPosition +
+                      TRIMMER_LENGTHS[trimmerLengthOptionIndex].value
+                    )}
                 </Text>
               </View>
             </View>

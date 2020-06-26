@@ -11,6 +11,7 @@ import {
 } from "react-native";
 
 import * as Arrow from "./Arrow";
+import MinimalTrimmer from './example/MinimalTrimmer';
 
 const { width: screenWidth, height: screenHeight } = Dimensions.get("window");
 
@@ -177,7 +178,7 @@ export default class Trimmer extends React.Component {
 
         if (
           newBoundedTrimmerRightHandlePosition -
-            this.state.trimmingLeftHandleValue >=
+          this.state.trimmingLeftHandleValue >=
           maxTrimDuration
         ) {
           this.setState({
@@ -187,7 +188,7 @@ export default class Trimmer extends React.Component {
           });
         } else if (
           newBoundedTrimmerRightHandlePosition -
-            this.state.trimmingLeftHandleValue <=
+          this.state.trimmingLeftHandleValue <=
           minimumTrimDuration
         ) {
           this.setState({
@@ -253,7 +254,7 @@ export default class Trimmer extends React.Component {
 
         if (
           this.state.trimmingRightHandleValue -
-            newBoundedTrimmerLeftHandlePosition >=
+          newBoundedTrimmerLeftHandlePosition >=
           maxTrimDuration
         ) {
           this.setState({
@@ -263,7 +264,7 @@ export default class Trimmer extends React.Component {
           });
         } else if (
           this.state.trimmingRightHandleValue -
-            newBoundedTrimmerLeftHandlePosition <=
+          newBoundedTrimmerLeftHandlePosition <=
           minimumTrimDuration
         ) {
           this.setState({
@@ -498,16 +499,16 @@ export default class Trimmer extends React.Component {
 
     const onLayoutHandler = centerOnLayout
       ? {
-          onLayout: () => {
-            const centerOffset =
-              actualTrimmerOffset + actualTrimmerWidth / 2 - screenWidth / 2;
-            this.scrollView.scrollTo({
-              x: centerOffset,
-              y: 0,
-              animated: false,
-            });
-          },
-        }
+        onLayout: () => {
+          const centerOffset =
+            actualTrimmerOffset + actualTrimmerWidth / 2 - screenWidth / 2;
+          this.scrollView.scrollTo({
+            x: centerOffset,
+            y: 0,
+            animated: false,
+          });
+        },
+      }
       : null;
 
     if (isNaN(actualTrimmerWidth)) {
@@ -705,3 +706,7 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 3,
   },
 });
+
+export {
+  MinimalTrimmer,
+}
