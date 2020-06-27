@@ -22,7 +22,7 @@ export default class TrimmerSlider extends React.Component {
     return (
       <Animated.View style={[containerStyle, { alignItems: "center" }]}>
         <Slider
-          style={{ borderColor: "red", borderWidth: 1, width: "100%" }}
+          style={{ width: "100%" }}
           ref={this.slider}
           thumbImage={require("./assets/thumb-image.png")}
           thumbTintColor="#fff"

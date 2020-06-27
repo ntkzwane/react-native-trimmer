@@ -26,6 +26,7 @@ const {
   debug,
 } = Animated;
 
+const MAIN_HEIGHT = 45;
 const SHOW_SCROLL_INDICATOR = true;
 
 const MARKER_INCREMENT = 1000;
@@ -35,6 +36,7 @@ const TRIMMER_WIDTH = 150;
 const TRIMMER_LENGTH = 5000;
 const MARKER_WIDTH = 3;
 const TRACK_BORDER_RADIUS = 5;
+const TRACK_HEIGHT = 45;
 
 const TRACK_BACKGROUND_COLOR = "#FFF";
 const TRACK_BORDER_COLOR = "#c8dad3";
@@ -279,7 +281,6 @@ export default class Trimmer extends React.Component {
       false
     );
 
-    return null;
     return (
       <View style={styles.root}>
         {/* <Animated.Code>
@@ -476,6 +477,7 @@ export default class Trimmer extends React.Component {
 const styles = StyleSheet.create({
   root: {
     width: "100%",
+    // backgroundColor: 'red',
   },
   sliderContainer: {
     // width: screenWidth,
@@ -486,27 +488,27 @@ const styles = StyleSheet.create({
     // marginBottom: 8,
   },
   trimmerRoot: {
-    height: 80,
+    height: MAIN_HEIGHT,
     justifyContent: "center",
     alignItems: "center",
     position: "relative",
   },
   horizontalScrollView: {
     zIndex: 1,
-    height: 80,
+    height: MAIN_HEIGHT,
     // overflow: 'hidden',
     position: "relative",
   },
   trackBackground: {
     overflow: "hidden",
-    marginVertical: 20,
+    // marginVertical: 20, // TODO:
     backgroundColor: TRACK_BACKGROUND_COLOR,
-    height: 45,
+    height: TRACK_HEIGHT,
   },
   trimmerContainer: {
     width: 200,
     height: "100%",
-    paddingVertical: 15,
+    // paddingVertical: 15, // TODO:
     position: "absolute",
     justifyContent: "center",
     alignItems: "center",
@@ -554,5 +556,7 @@ const styles = StyleSheet.create({
     width: (screenWidth - 24 - TRIMMER_WIDTH) / 2,
     opacity: 0.8,
     height: "100%",
+    // top: 20,
+    height: TRACK_HEIGHT
   },
 });

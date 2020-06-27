@@ -75,13 +75,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 56,
     justifyContent: "space-between",
     alignItems: "center",
+    marginBottom: 8, // offset the space between the top of the text and the slider
   },
   labelWrapper: {
-    padding: 2,
     borderRadius: 5,
     maxWidth: BUBBLE_WIDTH,
   },
   label: {
     letterSpacing: 1,
+    padding: 0
   },
 });
