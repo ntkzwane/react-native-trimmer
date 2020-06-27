@@ -44,4 +44,4 @@ jobs:
           scope: '@ntkzwane'
       - run: yarn publish --new-version $(git describe --tags `git rev-list --tags --max-count=1`)
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NODE_AUTH_TOKEN}}
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
