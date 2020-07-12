@@ -42,6 +42,6 @@ jobs:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
           scope: '@ntkzwane'
-      - run: yarn publish --new-version $(git describe --tags `git rev-list --tags --max-count=1`)
+      - run: yarn publish --new-version $(git describe --tags `git rev-list --tags --max-count=1`) --no-git-tag-version
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
