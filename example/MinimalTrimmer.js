@@ -244,6 +244,8 @@ export default class Trimmer extends React.Component {
       markerIncrement = MARKER_INCREMENT,
       onScrollBeginDrag,
       onMomentumScrollEnd,
+      trimmerLength,
+      showTrimmer,
     } = this.props;
 
     const { markerMargin, contentWidth } = this.state;
@@ -330,7 +332,7 @@ export default class Trimmer extends React.Component {
           </View>
         </View>
         <View>{this._renderStartingText()}</View>
-        <View style={[styles.trimmerRoot, { width }]}>
+        {showTrimmer && (<View style={[styles.trimmerRoot, { width }]}>
           <Animated.ScrollView
             ref={this.scrollViewRef}
             // scrollEnabled={true}
@@ -468,7 +470,7 @@ export default class Trimmer extends React.Component {
               />
             </View>
           </View>
-        </View>
+        </View>)}
       </View>
     );
   }
